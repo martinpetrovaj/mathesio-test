@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Mathesio.Discussion.BL.EntityManagers
 {
-    public class AuthorManager
+    public class AuthorManager : IAuthorManager
     {
         private readonly DiscussionContext context;
         private readonly IPasswordHasher passwordHasher;
