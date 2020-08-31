@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Mathesio.Discussion.BL.EntityManagers;
+using Mathesio.Discussion.BL.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +30,8 @@ namespace Mathesio.Discussion
         {
             services.AddDbContext<DAL.DiscussionContext>(o =>
                 o.UseSqlServer(Configuration.GetConnectionString("DiscussionDB")));
+            services.AddTransient<IPasswordHasher, SaltPasswordHasher>();
+            services.AddTransient<IAuthorManager, AuthorManager>();
             services.AddControllers();
         }
 
