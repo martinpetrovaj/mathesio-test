@@ -4,14 +4,16 @@ using Mathesio.Discussion.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Mathesio.Discussion.DAL.Migrations
 {
     [DbContext(typeof(DiscussionContext))]
-    partial class DiscussionContextModelSnapshot : ModelSnapshot
+    [Migration("20200831120427_Remove-Salt-Field")]
+    partial class RemoveSaltField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

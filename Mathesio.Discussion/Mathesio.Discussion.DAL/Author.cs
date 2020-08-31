@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Mathesio.Discussion.DAL
 {
@@ -16,8 +14,5 @@ namespace Mathesio.Discussion.DAL
 
         [Required]
         public string PasswordHash { get; set; }
-
-        [Required]
-        public string PasswordSalt { get; set; }
     }
 }
