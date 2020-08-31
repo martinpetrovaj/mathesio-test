@@ -31,6 +31,11 @@ namespace Mathesio.Discussion.BL.EntityManagers
         public bool VerifyAuthor(string name, string password)
         {
             var author = GetAuthor(name);
+            if (author == null)
+            {
+                return false;
+            }
+
             return passwordHasher.Check(author.PasswordHash, password);
         }
 
@@ -49,7 +54,7 @@ namespace Mathesio.Discussion.BL.EntityManagers
         public bool UpdateAuthorName(Guid authorID, string password, string newName)
         {
             var author = GetAuthor(authorID);
-            if (!VerifyAuthor(author.Name, password))
+            if (author == null || !VerifyAuthor(author.Name, password))
             {
                 return false;
             }
@@ -63,7 +68,7 @@ namespace Mathesio.Discussion.BL.EntityManagers
         public bool UpdateAuthorPassword(Guid authorID, string password, string newPassword)
         {
             var author = GetAuthor(authorID);
-            if (!VerifyAuthor(author.Name, password))
+            if (author == null || !VerifyAuthor(author.Name, password))
             {
                 return false;
             }
