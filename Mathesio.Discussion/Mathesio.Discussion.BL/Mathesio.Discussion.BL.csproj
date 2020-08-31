@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Mathesio.Discussion.DAL\Mathesio.Discussion.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
