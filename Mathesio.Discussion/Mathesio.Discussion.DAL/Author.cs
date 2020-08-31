@@ -10,6 +10,7 @@ namespace Mathesio.Discussion.DAL
 
         [Required]
         [StringLength(maximumLength: 56, MinimumLength = 6)]
+        // Should be set as unique thanks to index setup, see DiscussionContext
         public string Name { get; set; }
 
         [Required]

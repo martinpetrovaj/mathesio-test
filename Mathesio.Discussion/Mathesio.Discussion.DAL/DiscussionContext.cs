@@ -11,5 +11,13 @@ namespace Mathesio.Discussion.DAL
         public DiscussionContext(DbContextOptions<DiscussionContext> options) : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // TODO: mark Name as unique in Author.cs once EF Core adds support
+            modelBuilder.Entity<Author>()
+                .HasIndex(a => new { a.Name })
+                .IsUnique(true);
+        }
     }
 }
