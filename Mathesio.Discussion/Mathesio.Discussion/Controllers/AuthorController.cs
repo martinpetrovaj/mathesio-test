@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Mathesio.Discussion.BL.EntityManagers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Mathesio.Discussion.Controllers
@@ -12,9 +8,9 @@ namespace Mathesio.Discussion.Controllers
     [ApiController]
     public class AuthorController : ControllerBase
     {
-        private readonly AuthorManager authorManager;
+        private readonly IAuthorManager authorManager;
 
-        public AuthorController(AuthorManager manager)
+        public AuthorController(IAuthorManager manager)
         {
             authorManager = manager;
         }
@@ -26,13 +22,13 @@ namespace Mathesio.Discussion.Controllers
             return Ok();
         }
 
-        [HttpGet("?id={id}")]
+        [HttpGet("guid/{id}")]
         public IActionResult GetByID(Guid id)
         {
             return new JsonResult(authorManager.GetAuthor(id));
         }
 
-        [HttpGet("?name={name}")]
+        [HttpGet("name/{name}")]
         public IActionResult GetByName(string name)
         {
             return new JsonResult(authorManager.GetAuthor(name));
